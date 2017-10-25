@@ -12,9 +12,9 @@ const SendXMLHttpRequest = (url, data, success, error, fail) => {
             if (xhr.status >= 200 && xhr.status < 300 || xhr.status === 304) {
                 const response = JSON.parse(xhr.responseText);
 
-                if (response.code !== 1) {
-                    return error(xhr, response);
-                }
+                // if (response.code !== 1) {
+                //     return error(xhr, response);
+                // }
 
                 return success(xhr, response);
             }
@@ -43,7 +43,7 @@ module.exports = {
 
     read: (endpoint, callback) => {
         SendXMLHttpRequest(endpoint, null, (xhr, response) => {
-            callback(null, response.danmaku);
+            callback(null, response.data);
         }, (xhr, response) => {
             callback({ status: xhr.status, response });
         }, (xhr) => {

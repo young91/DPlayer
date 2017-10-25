@@ -130,11 +130,6 @@ const html = {
                     <span class="dplayer-icon-content">${icons.get('camera')}</span>
                 </a>
                 ` : ``}
-                <div class="dplayer-comment">
-                    <button class="dplayer-icon dplayer-comment-icon" data-balloon="${tran('Send danmaku')}" data-balloon-pos="up">
-                        <span class="dplayer-icon-content">${icons.get('comment')}</span>
-                    </button>
-                </div>
                 ${options.subtitle ? `
                 <div class="dplayer-subtitle-btn">
                     <button class="dplayer-icon dplayer-subtitle-icon" data-balloon="${tran('Hide subtitle')}" data-balloon-pos="up">

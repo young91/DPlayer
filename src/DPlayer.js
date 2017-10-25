@@ -104,6 +104,7 @@ class DPlayer {
                 time: () => this.video.currentTime,
                 unlimited: this.user.get('unlimited'),
                 api: {
+                    url: this.options.danmaku.url,
                     id: this.options.danmaku.id,
                     address: this.options.danmaku.api,
                     token: this.options.danmaku.token,
@@ -530,7 +531,7 @@ class DPlayer {
          */
         const controller = this.container.getElementsByClassName('dplayer-controller')[0];
         const commentInput = this.container.getElementsByClassName('dplayer-comment-input')[0];
-        const commentIcon = this.container.getElementsByClassName('dplayer-comment-icon')[0];
+        // const commentIcon = this.container.getElementsByClassName('dplayer-comment-icon')[0];
         const commentSettingIcon = this.container.getElementsByClassName('dplayer-comment-setting-icon')[0];
         const commentSettingBox = this.container.getElementsByClassName('dplayer-comment-setting-box')[0];
         const commentSendIcon = this.container.getElementsByClassName('dplayer-send-icon')[0];
@@ -576,9 +577,9 @@ class DPlayer {
         mask.addEventListener('click', () => {
             closeComment();
         });
-        commentIcon.addEventListener('click', () => {
-            openComment();
-        });
+        // commentIcon.addEventListener('click', () => {
+        //     openComment();
+        // });
         commentSettingIcon.addEventListener('click', () => {
             toggleCommentSetting();
         });
@@ -931,6 +932,7 @@ class DPlayer {
             this.container.getElementsByClassName('dplayer-danmaku')[0].innerHTML = '';
             if (this.danmaku) {
                 this.danmaku.reload({
+                    url: danmakuAPI.url,
                     id: danmakuAPI.id,
                     address: danmakuAPI.api,
                     token: danmakuAPI.token,

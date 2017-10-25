@@ -20,18 +20,19 @@ class Danmaku {
 
     load () {
         let apiurl;
-        if (this.options.api.maximum) {
-            apiurl = `${this.options.api.address}?id=${this.options.api.id}&max=${this.options.api.maximum}`;
-        }
-        else {
-            apiurl = `${this.options.api.address}?id=${this.options.api.id}`;
-        }
+        // if (this.options.api.maximum) {
+        //     apiurl = `${this.options.api.address}?id=${this.options.api.id}&max=${this.options.api.maximum}`;
+        // }
+        // else {
+        //     apiurl = `${this.options.api.address}?id=${this.options.api.id}`;
+        // }
+        apiurl = this.options.api.url;
         const endpoints = (this.options.api.addition || []).slice(0);
         endpoints.push(apiurl);
         this.events && this.events.trigger('danmaku_load_start', endpoints);
 
         this._readAllEndpoints(endpoints, (results) => {
-            this.dan = [].concat.apply([], results).sort((a, b) => a.time - b.time);
+            this.dan = [].concat.apply([], results).sort((a, b) => a.play_time - b.play_time);
             window.requestAnimationFrame(() => {
                 this.frame();
             });
@@ -108,7 +109,7 @@ class Danmaku {
         if (this.dan.length && !this.paused && this.showing) {
             let item = this.dan[this.danIndex];
             const dan = [];
-            while (item && this.options.time() > parseFloat(item.time)) {
+            while (item && this.options.time() > parseFloat(item.play_time)) {
                 dan.push(item);
                 item = this.dan[++this.danIndex];
             }
@@ -152,7 +153,7 @@ class Danmaku {
             return this.container.getBoundingClientRect().right - eleRight;
         };
 
-        const danSpeed = (width) => (danWidth + width) / 5;
+        const danSpeed = (width) => (danWidth + width) / 10;
 
         const getTunnel = (ele, type, width) => {
             const tmp = danWidth / danSpeed(width);
@@ -205,10 +206,10 @@ class Danmaku {
             item.classList.add(`dplayer-danmaku-item`);
             item.classList.add(`dplayer-danmaku-${dan[i].type}`);
             if (dan[i].border) {
-                item.innerHTML = `<span style="border:${dan[i].border}">${dan[i].text}</span>`;
+                item.innerHTML = `<span style="border:${dan[i].border}">${dan[i].content}</span>`;
             }
             else {
-                item.innerHTML = dan[i].text;
+                item.innerHTML = dan[i].content;
             }
             item.style.opacity = this._opacity;
             item.style.color = dan[i].color;
@@ -216,7 +217,7 @@ class Danmaku {
                 this.container.removeChild(item);
             });
 
-            const itemWidth = this._measure(dan[i].text);
+            const itemWidth = this._measure(dan[i].content);
             let tunnel;
 
             // adjust
@@ -279,7 +280,7 @@ class Danmaku {
     seek () {
         this.clear();
         for (let i = 0; i < this.dan.length; i++) {
-            if (this.dan[i].time >= this.options.time()) {
+            if (this.dan[i].play_time >= this.options.time()) {
                 this.danIndex = i;
                 break;
             }
