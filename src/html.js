@@ -217,13 +217,6 @@ const html = {
                     ${icons.get('right')}
                 </div>
             </div>
-            <div class="dplayer-setting-item dplayer-setting-loop">
-                <span class="dplayer-label">${tran('Loop')}</span>
-                <div class="dplayer-toggle">
-                    <input class="dplayer-toggle-setting-input" type="checkbox" name="dplayer-toggle">
-                    <label for="dplayer-toggle"></label>
-                </div>
-            </div>
             <div class="dplayer-setting-item dplayer-setting-showdan">
                 <span class="dplayer-label">${tran('Show danmaku')}</span>
                 <div class="dplayer-toggle">

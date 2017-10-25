@@ -394,21 +394,21 @@ class DPlayer {
         let unlimitDan = this.user.get('unlimited');
         const settingEvent = () => {
             // loop control
-            const loopEle = this.container.getElementsByClassName('dplayer-setting-loop')[0];
-            const loopToggle = loopEle.getElementsByClassName('dplayer-toggle-setting-input')[0];
-
-            loopToggle.checked = this.loop;
-
-            loopEle.addEventListener('click', () => {
-                loopToggle.checked = !loopToggle.checked;
-                if (loopToggle.checked) {
-                    this.loop = true;
-                }
-                else {
-                    this.loop = false;
-                }
-                closeSetting();
-            });
+            // const loopEle = this.container.getElementsByClassName('dplayer-setting-loop')[0];
+            // const loopToggle = loopEle.getElementsByClassName('dplayer-toggle-setting-input')[0];
+            //
+            // loopToggle.checked = this.loop;
+            //
+            // loopEle.addEventListener('click', () => {
+            //     loopToggle.checked = !loopToggle.checked;
+            //     if (loopToggle.checked) {
+            //         this.loop = true;
+            //     }
+            //     else {
+            //         this.loop = false;
+            //     }
+            //     closeSetting();
+            // });
 
             // show danmaku control
             const showDanEle = this.container.getElementsByClassName('dplayer-setting-showdan')[0];

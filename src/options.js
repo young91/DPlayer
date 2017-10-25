@@ -1,4 +1,3 @@
-/* global DPLAYER_VERSION GIT_HASH */
 const defaultApiBackend = require('./api.js');
 
 module.exports = (options) => {
@@ -125,20 +124,8 @@ module.exports = (options) => {
 
     options.contextmenu = options.contextmenu.concat([
         {
-            text: 'About author',
-            link: 'https://www.anotherhome.net/'
-        },
-        {
-            text: 'About DPlayer',
+            text: `About DPlayer`,
             link: 'https://github.com/MoePlayer/DPlayer'
-        },
-        {
-            text: 'DPlayer feedback',
-            link: 'https://github.com/DIYgod/DPlayer/issues'
-        },
-        {
-            text: `DPlayer ${DPLAYER_VERSION} ${GIT_HASH}`,
-            link: 'https://github.com/MoePlayer/DPlayer/releases'
         }
     ]);
 
