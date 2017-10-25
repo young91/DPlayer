@@ -20,13 +20,12 @@ class Danmaku {
 
     load () {
         let apiurl;
-        // if (this.options.api.maximum) {
-        //     apiurl = `${this.options.api.address}?id=${this.options.api.id}&max=${this.options.api.maximum}`;
-        // }
-        // else {
-        //     apiurl = `${this.options.api.address}?id=${this.options.api.id}`;
-        // }
-        apiurl = this.options.api.url;
+        if (this.options.api.maximum) {
+            apiurl = `${this.options.api.url}`;
+        }
+        else {
+            apiurl = `${this.options.api.url}`;
+        }
         const endpoints = (this.options.api.addition || []).slice(0);
         endpoints.push(apiurl);
         this.events && this.events.trigger('danmaku_load_start', endpoints);
@@ -60,10 +59,10 @@ class Danmaku {
             ++readCount;
             if (err) {
                 if (err.response) {
-                    this.options.error(err.response.msg);
+                    // this.options.error(err.response.msg);
                 }
                 else {
-                    this.options.error('Request was unsuccessful: ' + err.status);
+                    // this.options.error('Request was unsuccessful: ' + err.status);
                 }
                 results[i] = [];
             }

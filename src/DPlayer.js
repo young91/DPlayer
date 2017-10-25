@@ -563,16 +563,16 @@ class DPlayer {
 
             this.disableHideController = false;
         };
-        const openComment = () => {
-            this.disableHideController = true;
-
-            if (!controller.classList.contains('dplayer-controller-comment')) {
-                controller.classList.add('dplayer-controller-comment');
-                mask.classList.add('dplayer-mask-show');
-                this.container.classList.add('dplayer-show-controller');
-                commentInput.focus();
-            }
-        };
+        // const openComment = () => {
+        //     this.disableHideController = true;
+        //
+        //     if (!controller.classList.contains('dplayer-controller-comment')) {
+        //         controller.classList.add('dplayer-controller-comment');
+        //         mask.classList.add('dplayer-mask-show');
+        //         this.container.classList.add('dplayer-show-controller');
+        //         commentInput.focus();
+        //     }
+        // };
 
         mask.addEventListener('click', () => {
             closeComment();

@@ -1,3 +1,4 @@
+/* global DPLAYER_VERSION */
 const defaultApiBackend = require('./api.js');
 
 module.exports = (options) => {
@@ -124,8 +125,8 @@ module.exports = (options) => {
 
     options.contextmenu = options.contextmenu.concat([
         {
-            text: `About DPlayer`,
-            link: 'https://github.com/MoePlayer/DPlayer'
+            text: `Liangle ${DPLAYER_VERSION}`,
+            link: 'http://www.liangle.com'
         }
     ]);
 
