@@ -179,12 +179,7 @@ const html = {
     contextmenuList: (contextmenu, tran) => {
         let result = '<div class="dplayer-menu">';
         for (let i = 0; i < contextmenu.length; i++) {
-            if(!contextmenu[i].link) {
-                result += `<div class="dplayer-menu-item"><span>${tran(contextmenu[i].text)}</span></div>`;
-            } else {
-                result += `<div class="dplayer-menu-item"><a target="_blank" href="${contextmenu[i].link}">${tran(contextmenu[i].text)}</a></div>`;
-            }
-
+            result += `<div class="dplayer-menu-item"><a target="_blank" href="${contextmenu[i].link}">${tran(contextmenu[i].text)}</a></div>`;
         }
         result += '</div>';
 
