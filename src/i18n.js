@@ -4,7 +4,7 @@ W3C def language codes is :
         primary-code    ISO 639-1   ( the names of language with 2 code )
         subcode         ISO 3166    ( the names of countries )
 
-NOTE: use lowercase to prevent case typo from user! 
+NOTE: use lowercase to prevent case typo from user!
 Use this as shown below..... */
 
 module.exports = function (lang) {
@@ -31,7 +31,7 @@ const tranTxt = {
         'DPlayer feedback': '播放器意见反馈',
         'About DPlayer': '关于 DPlayer 播放器',
         'Loop': '洗脑循环',
-        'Speed': '速度',
+        'Speed': '播放速度',
         'Opacity for danmaku': '弹幕透明度',
         'Normal': '正常',
         'Please input danmaku content!': '要输入弹幕内容啊喂！',

@@ -758,7 +758,7 @@ class DPlayer {
 
                 const dataURL = canvas.toDataURL();
                 camareIcon.href = dataURL;
-                camareIcon.download = "DPlayer.png";
+                camareIcon.download = "Liangle" + new Date().getTime() + ".png";
 
                 this.events.trigger('screenshot', dataURL);
             });
